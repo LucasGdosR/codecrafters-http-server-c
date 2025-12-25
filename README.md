@@ -1,37 +1,20 @@
-[![progress-banner](https://backend.codecrafters.io/progress/http-server/55da2e20-f822-42ca-a5a5-7feac300cec7)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
+# HTTP 1.1 From Scratch
 
-This is a starting point for C solutions to the
-["Build Your Own HTTP server" Challenge](https://app.codecrafters.io/courses/http-server/overview).
+This is my take on CodeCrafters' ["Build Your Own HTTP Server"](https://app.codecrafters.io/r/glorious-mallard-480161). Currently 14/14 stages complete, waiting for the next extension.
 
-[HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) is the
-protocol that powers the web. In this challenge, you'll build a HTTP/1.1 server
-that is capable of serving multiple clients.
+## Functionalities
 
-Along the way you'll learn about TCP servers,
-[HTTP request syntax](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html),
-and more.
+- Accept concurrent TCP connections;
+- Connections take multiple requests;
+- Endpoints capturing path parameters, request bodies, servicing files, and creating files;
+- Supports "Connection: close" header;
+- Supports gzip compression;
 
-**Note**: If you're viewing this repo on GitHub, head over to
-[codecrafters.io](https://codecrafters.io) to try the challenge.
+## Highlights
 
-# Passing the first stage
+- Single arena per thread for the entirety of the memory needs (reset per request, destroyed on disconnect);
+- Destructive parsing of the request extracting method, path, headers, and body with zero copy;
+- Zero copy response, allocating it in the same order of the response;
+- gzip compression using `zlib.h`;
 
-The entry point for your HTTP server implementation is in `src/main.c`. Study
-and uncomment the relevant code, and push your changes to pass the first stage:
-
-```sh
-git commit -am "pass 1st stage" # any msg
-git push origin master
-```
-
-Time to move on to the next stage!
-
-# Stage 2 & beyond
-
-Note: This section is for stages 2 and beyond.
-
-1. Ensure you have `cmake` installed locally
-1. Run `./your_program.sh` to run your program, which is implemented in
-   `src/main.c`.
-1. Commit your changes and run `git push origin master` to submit your solution
-   to CodeCrafters. Test output will be streamed to your terminal.
+**Note**: Head over to [codecrafters.io](https://app.codecrafters.io/r/glorious-mallard-480161) to try the challenge.

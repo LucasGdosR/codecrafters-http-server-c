@@ -1,18 +1,18 @@
-#include <assert.h>
-#include <fcntl.h>
-#include <stdalign.h>
-#include <stddef.h>
-#include <sys/stat.h>
-#define _GNU_SOURCE
 #include <arpa/inet.h>
+#include <assert.h>
 #include <ctype.h>
 #include <errno.h>
+#include <fcntl.h>
 #include <netinet/in.h>
 #include <pthread.h>
+#include <stdalign.h>
+#include <stddef.h>
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
+#include <sys/stat.h>
 #include <unistd.h>
 #include <zlib.h>
 
