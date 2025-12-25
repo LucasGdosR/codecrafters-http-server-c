@@ -86,7 +86,7 @@ void arena_destroy(arena *restrict arena);
 
 static char *find_crlf(char *p)
 {
-    while (*p && (*p+1) && ((*p != '\r') || (*(p+1) != '\n')))
+    while (*p && *(p+1) && ((*p != '\r') || (*(p+1) != '\n')))
         p++;
     return ((*p == '\r') && (*(p+1) == '\n')) ? p : NULL;
 }
@@ -126,7 +126,7 @@ static parse_headers_result parse_headers(char *p, arena *allocator)
         count++;
 
         // This might be the end.
-        body = p;
+        body = p+2;
     }
     H->count = count;
 
